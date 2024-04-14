@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Arte</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            height: 200vh; /* Ajusta la altura de la pantalla completa */
+        }
+        /* Barra de navegación */
+        nav {
+            background-color: #ad6a6c; /* Morado */
+            color: #fff;
+            padding: 1rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+
+        }
+        nav ul li {
+            margin-right: 1rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        /* Secciones */
+        .section {
+            display: none;
+            padding: 2rem;
+        }
+        .active {
+            display: block;
+        }
+        /* Colores de sección */
+        #inicio {
+            background-color: #f4cbc6; / * Rosa palido */
+        }
+        #galeria {
+            background-color: #ff8552; /* Aanaranjado */
+        }
+        #contacto {
+            background-color: #17c3b2; /* Celeste */
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
+        <li><a href="#" onclick="showSection('galeria')">Galería de Fotos</a></li>
+        <li><a href="#" onclick="showSection('contacto')">Contacto</a></li>
+    </ul>
+</nav>
+<div class="section" id="inicio">
+    <h1 class="centered">Bienvenido a nuestra Galería de Arte</h1>
+    <img src="ruta_de_tu_imagen.png" alt="Obra de arte" class="centered">
+    <!-- Contenido de la sección de inicio -->
+</div>
+<div class="section" id="galeria">
+    <h1>Galería de Fotos</h1>
+    <h3>Picasso</h3>
+    <div class="imagen"><img src="imagen1.png" alt="Obra 1"></div>
+    <h3>Monet</h3>
+    <div class="imagen"><img src="imagen2.png" alt="Obra 2"></div>
+    <h3>Botticelli</h3>
+    <div class="imagen"><img src="imagen3.png" alt="Obra 3"></div>
+    <!-- Agrega más imágenes aquí -->
+
+</div>
+<div class="section" id="contacto">
+    <h1>Contacto</h1>
+    <p>¿Tienes alguna pregunta? Escríbenos a <a href="mailto:info@galeriadearte.com">info@galeriadearte.com</a></p>
+
+    <p>¿Quieres unirte a nuestro newsletter?, por favor rellena el formulario</p>
+    <form action="/enviar" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+</div>
+<script>
+    // Mostrar la sección de inicio al cargar la página
+    window.onload = function() {
+        showSection('inicio');
+    };
+
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
+</body>
+</html>
